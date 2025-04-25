@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="#F5F5F5">
+
+  <!-- Información del jugador -->
+  <TextView
+      android:id="@+id/tvPlayerInfo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="20sp"
+      android:textColor="#333333"
+      android:textStyle="bold"
+      android:layout_marginBottom="32dp"
+      android:text="Jugador: X"
+      android:gravity="center"/>
+
+  <!-- Tablero de juego -->
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:gravity="center">
+
+    <!-- Fila 1 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+      <Button
+          android:id="@+id/btn_00"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_margin="8dp"
+          android:textSize="28sp"
+
+          android:textColor="#333333"
+          android:text=""/>
+
+      <Button
+          android:id="@+id/btn_01"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_margin="8dp"
+          android:textSize="28sp"
+
+          android:textColor="#333333"
+          android:text=""/>
+
+      <Button
+          android:id="@+id/btn_02"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_margin="8dp"
+          android:textSize="28sp"
+
+          android:textColor="#333333"
+          android:text=""/>
+    </LinearLayout>
+
+    <!-- Fila 2 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+      <Button
+          android:id="@+id/btn_10"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_margin="8dp"
+          android:textSize="28sp"
+
+          android:textColor="#333333"
+          android:text=""/>
+
+      <Button
+          android:id="@+id/btn_11"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_margin="8dp"
+          android:textSize="28sp"
+
+          android:textColor="#333333"
+          android:text=""/>
+
+      <Button
+          android:id="@+id/btn_12"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_margin="8dp"
+          android:textSize="28sp"
+          android:textColor="#333333"
+          android:text=""/>
+    </LinearLayout>
+
+    <!-- Fila 3 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+      <Button
+          android:id="@+id/btn_20"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_margin="8dp"
+          android:textSize="28sp"
+          android:textColor="#333333"
+          android:text=""/>
+
+      <Button
+          android:id="@+id/btn_21"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_margin="8dp"
+          android:textSize="28sp"
+          android:textColor="#333333"
+          android:text=""/>
+
+      <Button
+          android:id="@+id/btn_22"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_margin="8dp"
+          android:textSize="28sp"
+          android:textColor="#333333"
+          android:text=""/>
+    </LinearLayout>
+  </LinearLayout>
+
+  <!-- Botones de acción -->
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:gravity="center"
+      android:layout_marginTop="24dp">
+
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reiniciar"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"/>
+
+    <Button
+        android:id="@+id/btnBackToMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver al Menú"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"/>
+  </LinearLayout>
+</LinearLayout>
