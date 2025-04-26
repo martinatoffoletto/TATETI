@@ -15,10 +15,9 @@
       android:textColor="#333333"
       android:textStyle="bold"
       android:layout_marginBottom="32dp"
-      android:text="Jugador vs Maquina"
+      android:text="Jugador vs Máquina"
       android:gravity="center"
       android:fontFamily="@font/lato" />
-
 
   <LinearLayout
       android:layout_width="wrap_content"
@@ -39,30 +38,33 @@
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
-          android:textSize="28sp"
-          android:background="@drawable/button_background"
+          android:backgroundTint="#60DED1"
+          android:contentDescription="Botón de juego"
+          android:text=""
           android:textColor="#333333"
-          android:text=""/>
+          android:textSize="28sp" />
 
       <Button
           android:id="@+id/btn_01"
+          android:backgroundTint="#60DED1"
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
-          android:textSize="28sp"
-          android:background="@drawable/button_background"
+          android:text=""
           android:textColor="#333333"
-          android:text=""/>
+          android:textSize="28sp"
+          android:contentDescription="Botón de juego" />
 
       <Button
           android:id="@+id/btn_02"
+          android:backgroundTint="#60DED1"
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
-          android:textSize="28sp"
-          android:background="@drawable/button_background"
+          android:text=""
           android:textColor="#333333"
-          android:text=""/>
+          android:textSize="28sp"
+          android:contentDescription="Botón de juego" />
     </LinearLayout>
 
     <!-- Fila 2 -->
@@ -75,33 +77,36 @@
 
       <Button
           android:id="@+id/btn_10"
+          android:backgroundTint="#60DED1"
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
-          android:textSize="28sp"
-          android:background="@drawable/button_background"
+          android:text=""
           android:textColor="#333333"
-          android:text=""/>
+          android:textSize="28sp"
+          android:contentDescription="Botón de juego" />
 
       <Button
           android:id="@+id/btn_11"
+          android:backgroundTint="#60DED1"
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
-          android:textSize="28sp"
-          android:background="@drawable/button_background"
+          android:text=""
           android:textColor="#333333"
-          android:text=""/>
+          android:textSize="28sp"
+          android:contentDescription="Botón de juego" />
 
       <Button
           android:id="@+id/btn_12"
+          android:backgroundTint="#60DED1"
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
-          android:background="@drawable/button_background"
-          android:textSize="28sp"
+          android:text=""
           android:textColor="#333333"
-          android:text="" />
+          android:textSize="28sp"
+          android:contentDescription="Botón de juego" />
     </LinearLayout>
 
     <!-- Fila 3 -->
@@ -113,33 +118,36 @@
 
       <Button
           android:id="@+id/btn_20"
+          android:backgroundTint="#60DED1"
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
-          android:background="@drawable/button_background"
-          android:textSize="28sp"
+          android:text=""
           android:textColor="#333333"
-          android:text="" />
+          android:textSize="28sp"
+          android:contentDescription="Botón de juego" />
 
       <Button
           android:id="@+id/btn_21"
+          android:backgroundTint="#60DED1"
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
-          android:background="@drawable/button_background"
-          android:textSize="28sp"
+          android:text=""
           android:textColor="#333333"
-          android:text="" />
+          android:textSize="28sp"
+          android:contentDescription="Botón de juego" />
 
       <Button
           android:id="@+id/btn_22"
+          android:backgroundTint="#60DED1"
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
-          android:background="@drawable/button_background"
-          android:textSize="28sp"
+          android:text=""
           android:textColor="#333333"
-          android:text="" />
+          android:textSize="28sp"
+          android:contentDescription="Botón de juego" />
     </LinearLayout>
   </LinearLayout>
 
@@ -159,7 +167,7 @@
         android:textSize="18sp"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="16dp"
-        android:padding="12dp"/>
+        android:padding="12dp" />
 
     <Button
         android:id="@+id/btnBackToMain"
@@ -169,6 +177,9 @@
         android:text="Volver al Menú"
         android:textSize="18sp"
         android:textColor="#FFFFFF"
-        android:padding="12dp"/>
+        android:layout_marginBottom="16dp"
+        android:padding="12dp" />
   </LinearLayout>
+
 </LinearLayout>
+

@@ -5,5 +5,8 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Ejemplo02" parent="Base.Theme.Ejemplo02" />
+    <style name="Theme.Ejemplo02" parent="Base.Theme.Ejemplo02" />ç
+
+
+
 </resources>
