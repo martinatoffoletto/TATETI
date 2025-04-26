@@ -5,9 +5,8 @@
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center"
-    android:background="#F5F5F5">
+    android:background="#FAFAFA">
 
-  <!-- Información del jugador -->
   <TextView
       android:id="@+id/tvPlayerInfo"
       android:layout_width="wrap_content"
@@ -16,10 +15,11 @@
       android:textColor="#333333"
       android:textStyle="bold"
       android:layout_marginBottom="32dp"
-      android:text="Jugador: X"
-      android:gravity="center"/>
+      android:text="Jugador vs Maquina"
+      android:gravity="center"
+      android:fontFamily="@font/lato" />
 
-  <!-- Tablero de juego -->
+
   <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
           android:layout_height="80dp"
           android:layout_margin="8dp"
           android:textSize="28sp"
-
+          android:background="@drawable/button_background"
           android:textColor="#333333"
           android:text=""/>
 
@@ -50,7 +50,7 @@
           android:layout_height="80dp"
           android:layout_margin="8dp"
           android:textSize="28sp"
-
+          android:background="@drawable/button_background"
           android:textColor="#333333"
           android:text=""/>
 
@@ -60,7 +60,7 @@
           android:layout_height="80dp"
           android:layout_margin="8dp"
           android:textSize="28sp"
-
+          android:background="@drawable/button_background"
           android:textColor="#333333"
           android:text=""/>
     </LinearLayout>
@@ -79,7 +79,7 @@
           android:layout_height="80dp"
           android:layout_margin="8dp"
           android:textSize="28sp"
-
+          android:background="@drawable/button_background"
           android:textColor="#333333"
           android:text=""/>
 
@@ -89,7 +89,7 @@
           android:layout_height="80dp"
           android:layout_margin="8dp"
           android:textSize="28sp"
-
+          android:background="@drawable/button_background"
           android:textColor="#333333"
           android:text=""/>
 
@@ -98,9 +98,10 @@
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
+          android:background="@drawable/button_background"
           android:textSize="28sp"
           android:textColor="#333333"
-          android:text=""/>
+          android:text="" />
     </LinearLayout>
 
     <!-- Fila 3 -->
@@ -115,31 +116,33 @@
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
+          android:background="@drawable/button_background"
           android:textSize="28sp"
           android:textColor="#333333"
-          android:text=""/>
+          android:text="" />
 
       <Button
           android:id="@+id/btn_21"
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
+          android:background="@drawable/button_background"
           android:textSize="28sp"
           android:textColor="#333333"
-          android:text=""/>
+          android:text="" />
 
       <Button
           android:id="@+id/btn_22"
           android:layout_width="80dp"
           android:layout_height="80dp"
           android:layout_margin="8dp"
+          android:background="@drawable/button_background"
           android:textSize="28sp"
           android:textColor="#333333"
-          android:text=""/>
+          android:text="" />
     </LinearLayout>
   </LinearLayout>
 
-  <!-- Botones de acción -->
   <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -151,6 +154,7 @@
         android:id="@+id/btnReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#60DED1"
         android:text="Reiniciar"
         android:textSize="18sp"
         android:textColor="#FFFFFF"
@@ -161,6 +165,7 @@
         android:id="@+id/btnBackToMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#60DED1"
         android:text="Volver al Menú"
         android:textSize="18sp"
         android:textColor="#FFFFFF"

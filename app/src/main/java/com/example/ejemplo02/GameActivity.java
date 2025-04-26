@@ -26,7 +26,7 @@ public class GameActivity extends AppCompatActivity {
         computerSymbol = playerSymbol.equals("X") ? "O" : "X";
 
         tvPlayerInfo = findViewById(R.id.tvPlayerInfo);
-        tvPlayerInfo.setText(playerName + " (" + playerSymbol + ") vs Computadora (" + computerSymbol + ")");
+        tvPlayerInfo.setText(playerName + " (" + playerSymbol + ") vs Maquina (" + computerSymbol + ")");
 
         // Inicializar el tablero
         for (int i = 0; i < 3; i++) {

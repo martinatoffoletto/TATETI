@@ -1,59 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:padding="24dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido a TaTeTi"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"/>
 
-    <EditText
-        android:id="@+id/etPlayerName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ingresa tu nombre"
-        android:inputType="text"/>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginBottom="24dp"
+    android:fontFamily="@font/lato_light"
+    android:gravity="center"
+    android:text="¡Bienvenido a TaTeTi!"
+    android:textAlignment="center"
+    android:textSize="32sp"
+    android:textStyle="bold"
+    android:textColor="#333333"
+    android:typeface="normal" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Selecciona tu símbolo:"
-        android:layout_marginTop="16dp"/>
 
-    <RadioGroup
-        android:id="@+id/rgSymbol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+<EditText
+android:id="@+id/etPlayerName"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginBottom="16dp"
+    android:fontFamily="@font/lato"
+    android:gravity="center"
+    android:hint="Ingrese su nombre"
+    android:inputType="text"
+    android:background="@android:drawable/edit_text"
+    android:padding="12dp" />
 
-        <RadioButton
-            android:id="@+id/rbCross"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="X"/>
 
-        <RadioButton
-            android:id="@+id/rbCircle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="O"
-            android:layout_marginLeft="16dp"/>
-    </RadioGroup>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="16dp"
+android:layout_marginBottom="8dp"
+    android:fontFamily="@font/lato"
+    android:text="Selecciona tu símbolo:"
+    android:textSize="18sp"
+    android:textColor="#555555" />
 
-    <Button
-        android:id="@+id/btnStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Comenzar"
-        android:textColorLink="#60DED1" />
 
-</LinearLayout>
+<RadioGroup
+android:id="@+id/rgSymbol"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:gravity="center_horizontal">
+
+<RadioButton
+    android:id="@+id/rbCross"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="X"
+    android:fontFamily="@font/lato" />
+
+<RadioButton
+    android:id="@+id/rbCircle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
+android:text="O"
+android:fontFamily="@font/lato" />
+</RadioGroup>
+
+
+<Button
+android:id="@+id/btnStart"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="40dp"
+android:padding="12dp"
+android:backgroundTint="#60DED1"
+    android:text="Comenzar"
+    android:textColor="#FFFFFF"
+    android:textSize="18sp"
+    android:fontFamily="@font/lato" />
+
+    </LinearLayout>
