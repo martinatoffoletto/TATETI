@@ -6,38 +6,55 @@ import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Random;
+
 public class GameActivity extends AppCompatActivity {
-    private TextView tvPlayerInfo;
-    private Button[][] buttons = new Button[3][3];
-    private String playerName;
-    private String playerSymbol;
-    private String computerSymbol;
-    private boolean playerTurn;
-    private int turnCount;
+    private TextView tvPlayerInfo;  //text view
+    private Button[][] buttons = new Button[3][3]; //grilla de tateti
+    private String playerName; //nombre jugador
+    private String playerSymbol; //simbolo juagdor
+    private String computerSymbol; //simbolo computador
+    private boolean playerTurn; // es turno del jugador?
+    private int turnCount; // numero de ronda/turno
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //lo q se muestra cuando arranca la pantalla
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        // Obtener datos de la actividad anterior
+        // obtengo info de la MainActivity
         playerName = getIntent().getStringExtra("PLAYER_NAME");
         playerSymbol = getIntent().getStringExtra("PLAYER_SYMBOL");
-        computerSymbol = playerSymbol.equals("X") ? "O" : "X";
 
-        tvPlayerInfo = findViewById(R.id.tvPlayerInfo);
+        if ("X".equals(playerSymbol)) { //si es x computador tiene O, sino X
+            computerSymbol = "O";
+        } else {
+            computerSymbol = "X";}
+
+        tvPlayerInfo = findViewById(R.id.tvPlayerInfo);  // text view de el nombre del usuario su eleccion y el de la maquina
         tvPlayerInfo.setText(playerName + " (" + playerSymbol + ") vs Maquina (" + computerSymbol + ")");
 
-        // Inicializar el tablero
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                String buttonID = "btn_" + i + j;
-                int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
-                buttons[i][j] = findViewById(resID);
-                buttons[i][j].setOnClickListener(new CellClickListener(i, j));
+        // inicializar el grilla
+        buttons = new Button[][] {
+                { findViewById(R.id.btn_00), findViewById(R.id.btn_01), findViewById(R.id.btn_02) },
+                { findViewById(R.id.btn_10), findViewById(R.id.btn_11), findViewById(R.id.btn_12) },
+                { findViewById(R.id.btn_20), findViewById(R.id.btn_21), findViewById(R.id.btn_22) }};
+
+        //listener de grilla
+        for (int i = 0; i < 3; i++) { //fila
+            for (int j = 0; j < 3; j++) { //col
+                final int row = i;
+                final int col = j;
+                buttons[i][j].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        handleCellClick(row, col);
+                    }
+                });
             }
         }
 
+        //listener boton de reinicio
         Button btnReset = findViewById(R.id.btnReset);
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,101 +63,87 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
+        //listener boton volver al menu
         Button btnBackToMain = findViewById(R.id.btnBackToMain);
         btnBackToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GameActivity.this, MainActivity.class);
                 startActivity(intent);
-                finish();  // Finaliza la actividad actual para que el usuario no pueda volver a ella con el botón "Atrás"
+                finish();
             }
         });
 
-        playerTurn = true;// X siempre comienza
+        playerTurn = true; // siempre comienza jugador
         turnCount = 0;
     }
 
-    private class CellClickListener implements View.OnClickListener {
-        private int row;
-        private int col;
-
-        public CellClickListener(int row, int col) {
-            this.row = row;
-            this.col = col;
+    private void handleCellClick(int row, int col) { //para cuando clickeas celda
+        if (!buttons[row][col].getText().toString().isEmpty()) {
+            return; // ya ocupada
         }
+        if (playerTurn) {
+            buttons[row][col].setText(playerSymbol);
+            turnCount++; //pone simbolo en casilla seleccionada y suma turno
 
-        @Override
-        public void onClick(View v) {
-            if (!buttons[row][col].getText().toString().isEmpty()) {
-                return; // Casilla ya ocupada
-            }
-
-            if (playerTurn) {
-                buttons[row][col].setText(playerSymbol);
-                turnCount++;
-
-                if (checkWin(playerSymbol)) {
-                    gameOver(playerName + " gana!");
-                } else if (turnCount == 9) {
-                    gameOver("Empate!");
-                } else {
-                    playerTurn = false;
-                    computerMove();
-                }
+            if (checkWin(playerSymbol)) {
+                gameOver(playerName + " gana!");
+            } else if (turnCount == 9) {
+                gameOver("Empate!");
+            } else {
+                playerTurn = false;
+                computerMove();
             }
         }
     }
 
-    private void computerMove() {
-        // Lógica simple de la computadora (puedes mejorarla)
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (buttons[i][j].getText().toString().isEmpty()) {
-                    buttons[i][j].setText(computerSymbol);
-                    turnCount++;
 
-                    if (checkWin(computerSymbol)) {
-                        gameOver("Computadora gana!");
-                        return;  // Si la computadora gana, termina la función
-                    } else if (turnCount == 9) {
-                        gameOver("Empate!");
-                        return;  // Si es un empate, termina la función
-                    } else {
-                        playerTurn = true;  // Después de que la computadora haga su jugada, el turno vuelve al jugador
-                    }
-                    return; // Sale del ciclo y pasa al siguiente turno
+    private void computerMove() {
+        //pone en un lugar random disponible de la grilla
+        Random random = new Random();
+
+        while (true) {
+            int row = random.nextInt(3);
+            int col = random.nextInt(3);
+
+            if (buttons[row][col].getText().toString().isEmpty()) {
+                buttons[row][col].setText(computerSymbol);
+                turnCount++;
+
+                if (checkWin(computerSymbol)) {
+                    gameOver("Computadora gana!");
+                } else if (turnCount == 9) {
+                    gameOver("Empate!");
+                } else {
+                    playerTurn = true;
                 }
+                return;
             }
         }
     }
 
     private boolean checkWin(String symbol) {
-        // Verificar filas
+
         for (int i = 0; i < 3; i++) {
-            if (buttons[i][0].getText().toString().equals(symbol) &&
+            if (buttons[i][0].getText().toString().equals(symbol) && //verifica filas
                     buttons[i][1].getText().toString().equals(symbol) &&
                     buttons[i][2].getText().toString().equals(symbol)) {
                 return true;
             }
-        }
-
-        // Verificar columnas
-        for (int j = 0; j < 3; j++) {
-            if (buttons[0][j].getText().toString().equals(symbol) &&
-                    buttons[1][j].getText().toString().equals(symbol) &&
-                    buttons[2][j].getText().toString().equals(symbol)) {
+            if (buttons[0][i].getText().toString().equals(symbol) && // verificar columnas
+                    buttons[1][i].getText().toString().equals(symbol) &&
+                    buttons[2][i].getText().toString().equals(symbol)) {
                 return true;
             }
         }
 
-        // Verificar diagonales
-        if (buttons[0][0].getText().toString().equals(symbol) &&
+        if (buttons[0][0].getText().toString().equals(symbol) && // verifica diagonal de izq a der
                 buttons[1][1].getText().toString().equals(symbol) &&
                 buttons[2][2].getText().toString().equals(symbol)) {
             return true;
         }
 
-        if (buttons[0][2].getText().toString().equals(symbol) &&
+        if (buttons[0][2].getText().toString().equals(symbol) && // verifica diagonal de der a izq
                 buttons[1][1].getText().toString().equals(symbol) &&
                 buttons[2][0].getText().toString().equals(symbol)) {
             return true;
@@ -171,8 +174,8 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 
-        playerTurn = playerSymbol.equals("X");
         turnCount = 0;
+        playerTurn = true;
     }
 
 

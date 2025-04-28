@@ -8,8 +8,8 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText etPlayerName;
-    private RadioGroup rgSymbol;
+    private EditText etPlayerName; // ph de nombre
+    private RadioGroup rgSymbol; // radio para elegir simbolo
     private Button btnStart;
 
     @Override
@@ -29,13 +29,12 @@ public class MainActivity extends AppCompatActivity {
                     playerName = "Extraño";
                 }
 
-                String playerSymbol = "X"; // Default to X
+                String playerSymbol = "X"; // pone default X
                 int selectedId = rgSymbol.getCheckedRadioButtonId();
 
                 if (selectedId == R.id.rbCircle) {
-                    playerSymbol = "O"; // Change to O if Circle is selected
+                    playerSymbol = "O"; // si selecciona circulo lo modifica
                 }
-                // If nothing is selected, it will keep the default X
 
                 Intent intent = new Intent(MainActivity.this, GameActivity.class);
                 intent.putExtra("PLAYER_NAME", playerName);
